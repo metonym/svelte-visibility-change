@@ -1,0 +1,42 @@
+{
+  "name": "svelte-visibility-change",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Svelte utility to detect browser page visibility changes using the Page Visibility API",
+  "author": "Eric Liu (https://github.com/metonym)",
+  "svelte": "./src/index.js",
+  "main": "./lib/index.js",
+  "types": "./types/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "rollup -cw",
+    "predeploy": "rollup -c",
+    "deploy": "npx gh-pages -d dist",
+    "prepack": "BUNDLE=true rollup -c",
+    "test": "svelte-check"
+  },
+  "devDependencies": {
+    "svelte": "^3.38.3",
+    "svelte-check": "^2.2.2",
+    "svelte-readme": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metonym/svelte-visibility-change"
+  },
+  "homepage": "https://github.com/metonym/svelte-visibility-change",
+  "bugs": "https://github.com/metonym/svelte-visibility-change/issues",
+  "keywords": [
+    "svelte",
+    "svelte component",
+    "page visibility",
+    "browser tab",
+    "focus",
+    "blur",
+    "api"
+  ],
+  "files": [
+    "src",
+    "types"
+  ]
+}
