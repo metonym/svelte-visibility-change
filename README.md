@@ -14,6 +14,8 @@ Use this utility component to declaratively listen to browser page visibility ch
 - toggle audio when the browser tab is focused or blurred
 - pause expensive background computations when the tab is blurred
 
+Try it in the [Svelte REPL](https://svelte.dev/repl/a4b8bdb782514baaa7fa1cb26313b303).
+
 ---
 
 <!-- TOC -->
