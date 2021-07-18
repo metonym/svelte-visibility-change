@@ -8,6 +8,8 @@
 
 Use this utility component to declaratively listen to browser page visibility changes.
 
+The visibility state of a page can either be "visible" or "hidden."
+
 **Use cases**
 
 - make a network request whenever the browser tab is focused
@@ -40,7 +42,7 @@ npm i -D svelte-visibility-change
 
 Bind to the `state` prop to determine if the current tab is currently visible or hidden.
 
-In this live demo, switch to a different tab in the *same browser window*. The page title should change from "visible" to "hidden."
+In this live demo, switch to a different tab in the _same browser window_. The page title should change from "visible" to "hidden."
 
 ```svelte
 <script>
@@ -88,9 +90,9 @@ An alternative to binding to props is to listen to the `on:visible` and `on:hidd
 
 ### on:change
 
-This component dispatches an `on:change` event whenever the a `visibilitychange` event occurs.
+This component dispatches an `on:change` event whenever a [visibilitychange](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilitychange_event) event occurs.
 
-**Note:** unlike `on:visible`, this event only fires when the page visibility changes *after the component has mounted.*
+**Note:** unlike `on:visible`, this event only fires when the page visibility changes _after the component has mounted._
 
 ```svelte
 <VisibilityChange
