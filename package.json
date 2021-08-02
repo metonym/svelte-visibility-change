@@ -5,14 +5,14 @@
   "description": "Svelte utility to detect browser page visibility changes using the Page Visibility API",
   "author": "Eric Liu (https://github.com/metonym)",
   "svelte": "./src/index.js",
-  "main": "./lib/index.js",
+  "main": "./src/index.js",
   "types": "./types/index.d.ts",
   "sideEffects": false,
   "scripts": {
     "dev": "rollup -cw",
     "predeploy": "rollup -c",
     "deploy": "npx gh-pages -d dist",
-    "prepack": "BUNDLE=true rollup -c",
+    "prepack": "rollup -c",
     "test": "svelte-check"
   },
   "devDependencies": {
