@@ -2,7 +2,7 @@
 
 [![NPM][npm]][npm-url]
 
-> Svelte utility to detect browser page visibility changes using the [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)
+> Detect browser page visibility changes using the [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)
 
 <!-- REPO_URL -->
 
