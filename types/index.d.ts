@@ -1,1 +1,1 @@
-export { default } from "./VisibilityChange";
+export { default } from "./VisibilityChange.svelte";
