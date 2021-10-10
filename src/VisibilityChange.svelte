@@ -1,12 +1,7 @@
 <script>
   /**
-   * @typedef {"visible" | "hidden"} VisibilityState
-   * @event {{ state: VisibilityState; visible: boolean; hidden: boolean; }} change
-   */
-
-  /**
    * Determine the current visibility state of the document
-   * @type {VisibilityState}
+   * @type {"visible" | "hidden"}
    */
   export let state = undefined;
 
