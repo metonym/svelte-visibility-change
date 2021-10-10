@@ -12,8 +12,8 @@ The visibility state of a page can either be "visible" or "hidden."
 
 **Use cases**
 
-- make a network request whenever the browser tab is focused
-- toggle audio when the browser tab is focused or blurred
+- make a network request when the browser tab is focused
+- play/pause audiot when the browser tab is focused or blurred
 - pause expensive background computations when the tab is blurred
 
 Try it in the [Svelte REPL](https://svelte.dev/repl/a4b8bdb782514baaa7fa1cb26313b303).
