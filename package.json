@@ -10,7 +10,6 @@
   "sideEffects": false,
   "scripts": {
     "dev": "rollup -cw",
-    "prepack": "rollup -c",
     "predeploy": "rollup -c",
     "deploy": "gh-pages -d dist",
     "test": "svelte-check --workspace test"
