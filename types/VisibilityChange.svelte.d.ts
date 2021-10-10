@@ -25,12 +25,23 @@ export interface defaultProps {
 export default class extends SvelteComponentTyped<
   defaultProps,
   {
+    /**
+     * Dispatched whenever the browser tab is focused or blurred
+     */
     change: CustomEvent<{
       state: VisibilityState;
       visible: boolean;
       hidden: boolean;
     }>;
+
+    /**
+     * Dispatched when the browser tab is focused
+     */
     visible: CustomEvent<any>;
+
+    /**
+     * Dispatched when the browser tab is blurred
+     */
     hidden: CustomEvent<any>;
   },
   {}
