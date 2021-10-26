@@ -48,7 +48,7 @@ In this live demo, switch to a different tab in the _same browser window_. The p
 <script>
   import VisibilityChange from "svelte-visibility-change";
 
-  let state; // "visible" | "hidden"
+  let state; /** "visible" | "hidden" */
 
   $: document.title = state;
 </script>
@@ -60,10 +60,12 @@ In this live demo, switch to a different tab in the _same browser window_. The p
 
 You can also bind to the boolean `visible` and `hidden` props.
 
-```svelte
+```svelte no-eval
 <script>
-  let visible; // boolean
-  let hidden; // boolean
+  import VisibilityChange from "svelte-visibility-change";
+
+  let visible; /** boolean */
+  let hidden; /** boolean */
 </script>
 
 <VisibilityChange bind:visible bind:hidden />
@@ -75,6 +77,8 @@ An alternative to binding to props is to listen to the `on:visible` and `on:hidd
 
 ```svelte
 <script>
+  import VisibilityChange from "svelte-visibility-change";
+
   let events = [];
 </script>
 
@@ -94,7 +98,7 @@ This component dispatches an `on:change` event whenever a [visibilitychange](htt
 
 **Note:** unlike `on:visible`, this event only fires when the page visibility changes _after the component has mounted._
 
-```svelte
+```svelte no-eval
 <VisibilityChange
   on:change={({ detail }) => {
     console.log(detail.state); // "visible" | "hidden"
