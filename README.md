@@ -42,7 +42,7 @@ npm i -D svelte-visibility-change
 
 Bind to the `state` prop to determine if the current tab is currently visible or hidden.
 
-In this live demo, switch to a different tab in the _same browser window_. The page title should change from "visible" to "hidden."
+In this live demo, switch to a different tab in the same browser window. The page title should change from "visible" to "hidden."
 
 ```svelte
 <script>
@@ -87,9 +87,7 @@ An alternative to binding to props is to listen to the `on:visible` and `on:hidd
   on:hidden={() => (events = [...events, "on:hidden"])}
 />
 
-{#each events as event}
-  {event} <br />
-{/each}
+{events.join(", ")}
 ```
 
 ### on:change
@@ -112,11 +110,11 @@ This component dispatches an `on:change` event whenever a [visibilitychange](htt
 
 ### Props
 
-| Prop name | Value                                            |
-| :-------- | :----------------------------------------------- |
-| state     | `"visible"` or `"hidden"` (default: `undefined`) |
-| visible   | `boolean` (default: `false`)                     |
-| hidden    | `boolean` (default: `false`)                     |
+| Name    | Type                      | Default value |
+| :------ | :------------------------ | :------------ |
+| state   | `"visible"` or `"hidden"` | `undefined`   |
+| visible | `boolean`                 | `false`       |
+| hidden  | `boolean`                 | `false`       |
 
 ### Dispatched Events
 
