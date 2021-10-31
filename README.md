@@ -36,6 +36,12 @@ yarn add -D svelte-visibility-change
 npm i -D svelte-visibility-change
 ```
 
+**pnpm**
+
+```bash
+pnpm i -D svelte-visibility-change
+```
+
 ## Usage
 
 ### Basic
