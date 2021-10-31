@@ -3,7 +3,7 @@ import { SvelteComponentTyped } from "svelte";
 
 export type VisibilityState = "visible" | "hidden";
 
-export interface defaultProps {
+export interface VisibilityChangeProps {
   /**
    * Determine the current visibility state of the document
    */
@@ -23,7 +23,7 @@ export interface defaultProps {
 }
 
 export default class extends SvelteComponentTyped<
-  defaultProps,
+  VisibilityChangeProps,
   {
     /**
      * Dispatched whenever the browser tab is focused or blurred
