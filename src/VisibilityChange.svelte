@@ -15,18 +15,15 @@
 
   const dispatch = createEventDispatcher();
 
-  function visibilityChange() {
+  const change = () => {
     state = document.visibilityState;
     dispatch("change", { state, visible, hidden });
-  }
+  };
 
   onMount(() => {
     state = document.visibilityState;
-    document.addEventListener("visibilitychange", visibilityChange);
-
-    return () => {
-      document.removeEventListener("visibilitychange", visibilityChange);
-    };
+    document.addEventListener("visibilitychange", change);
+    return () => document.removeEventListener("visibilitychange", change);
   });
 
   $: visible = state === "visible";
