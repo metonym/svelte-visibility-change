@@ -17,8 +17,8 @@
   "devDependencies": {
     "gh-pages": "^3.2.3",
     "svelte": "^3.44.0",
-    "svelte-check": "^2.2.7",
-    "svelte-readme": "^3.5.0"
+    "svelte-check": "^2.2.8",
+    "svelte-readme": "^3.6.0"
   },
   "repository": {
     "type": "git",
