@@ -77,7 +77,7 @@ You can also bind to the boolean `visible` and `hidden` props.
 <VisibilityChange bind:visible bind:hidden />
 ```
 
-### on:visible / on:hidden
+### `on:visible` / `on:hidden`
 
 An alternative to binding to props is to listen to the `on:visible` and `on:hidden` dispatched events.
 
@@ -96,7 +96,7 @@ An alternative to binding to props is to listen to the `on:visible` and `on:hidd
 {events.join(", ")}
 ```
 
-### on:change
+### `on:change`
 
 This component dispatches an `on:change` event whenever a [visibilitychange](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilitychange_event) event occurs.
 
