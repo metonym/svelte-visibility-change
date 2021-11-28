@@ -112,6 +112,44 @@ This component dispatches an `on:change` event whenever a [visibilitychange](htt
 />
 ```
 
+### `visibilityChange` action
+
+An alternative to the `VisibilityChange` component is the `visibilityChange` action.
+
+The action only dispatches a "change" event with the same `event.detail` signature.
+
+```svelte no-eval
+<script>
+  import { visibilityChange } from "svelte-visibility-change";
+</script>
+
+<div
+  use:visibilityChange
+  on:change={({ detail }) => {
+    console.log(detail.state); // "visible" | "hidden"
+    console.log(detail.visible); // boolean
+    console.log(detail.hidden); // boolean
+  }}
+/>
+```
+
+If using the action with TypeScript, use the `OnChangeEvent` utility type to ameliorate TypeScript errors.
+
+```html
+<script lang="ts">
+  import { visibilityChange } from "svelte-visibility-change";
+  import { OnChangeEvent } from "svelte-visibility-change/types";
+
+  const onChange: OnChangeEvent = ({ detail }) => {
+    console.log(detail.state); // "visible" | "hidden"
+    console.log(detail.visible); // boolean
+    console.log(detail.hidden); // boolean
+  };
+</script>
+
+<div use:visibilityChange on:change="{onChange}" />
+```
+
 ## API
 
 ### Props
