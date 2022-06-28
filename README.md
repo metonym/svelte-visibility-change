@@ -126,23 +126,6 @@ The action only dispatches a "change" event with the same `event.detail` signatu
 />
 ```
 
-If using the action with TypeScript, use the `OnChangeEvent` utility type to ameliorate TypeScript errors.
-
-```html
-<script lang="ts">
-  import { visibilityChange } from "svelte-visibility-change";
-  import type { OnChangeEvent } from "svelte-visibility-change/types";
-
-  const onChange: OnChangeEvent = ({ detail }) => {
-    console.log(detail!.state); // "visible" | "hidden"
-    console.log(detail!.visible); // boolean
-    console.log(detail!.hidden); // boolean
-  };
-</script>
-
-<div use:visibilityChange on:change="{onChange}" />
-```
-
 ## API
 
 ### Props
@@ -162,8 +145,6 @@ If using the action with TypeScript, use the `OnChangeEvent` utility type to ame
 ## TypeScript
 
 Svelte version 3.31 or greater is required to use this component with TypeScript.
-
-TypeScript definitions are located in the [types folder](types/).
 
 ## Changelog
 
