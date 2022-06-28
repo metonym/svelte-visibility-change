@@ -4,7 +4,7 @@
 
 <div
   use:visibilityChange
-  on:change={(e) => {
+  on:visibilitychange={(e) => {
     console.log(e.detail);
   }}
 />
