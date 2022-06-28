@@ -1,21 +1,21 @@
-import { SvelteComponentTyped } from "svelte";
+import type { SvelteComponentTyped } from "svelte";
 
-export type VisibilityState = "visible" | "hidden";
+export type VisibilityState = DocumentVisibilityState;
 
 export interface VisibilityChangeProps {
   /**
-   * Determine the current visibility state of the document
+   * The current visibility state of the document.
    */
   state?: VisibilityState;
 
   /**
-   * `true` if the page is visible
+   * `true` if the page is visible ("focused").
    * @default false
    */
   visible?: boolean;
 
   /**
-   * `true` if the page is not visible (i.e., "blurred")
+   * `true` if the page is not visible ("blurred").
    * @default false
    */
   hidden?: boolean;
@@ -25,23 +25,23 @@ export default class extends SvelteComponentTyped<
   VisibilityChangeProps,
   {
     /**
-     * Dispatched whenever the browser tab is focused or blurred
+     * Dispatched whenever the page is focused or blurred.
      */
     change: CustomEvent<{
-      state: VisibilityState;
+      state: DocumentVisibilityState;
       visible: boolean;
       hidden: boolean;
     }>;
 
     /**
-     * Dispatched when the browser tab is focused
+     * Dispatched when the browser tab is focused.
      */
-    visible: CustomEvent<any>;
+    visible: CustomEvent<null>;
 
     /**
-     * Dispatched when the browser tab is blurred
+     * Dispatched when the browser tab is blurred.
      */
-    hidden: CustomEvent<any>;
+    hidden: CustomEvent<null>;
   },
   {}
 > {}

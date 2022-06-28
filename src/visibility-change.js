@@ -1,7 +1,7 @@
 /**
- * @param {HTMLElement} element
+ * @type {import ("svelte/action").Action<HTMLElement>}
  */
-export function visibilityChange(element) {
+export const visibilityChange = (element) => {
   const change = () => {
     const state = document.visibilityState;
     const visible = state === "visible";
@@ -15,10 +15,9 @@ export function visibilityChange(element) {
   };
 
   document.addEventListener("visibilitychange", change);
-
   return {
     destroy() {
       document.removeEventListener("visibilitychange", change);
     },
   };
-}
+};
