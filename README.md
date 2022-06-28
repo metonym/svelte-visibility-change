@@ -118,7 +118,7 @@ The action only dispatches a "change" event with the same `event.detail` signatu
 
 <div
   use:visibilityChange
-  on:change={({ detail }) => {
+  on:visibilitychange={({ detail }) => {
     console.log(detail.state); // "visible" | "hidden"
     console.log(detail.visible); // boolean
     console.log(detail.hidden); // boolean
