@@ -49,7 +49,9 @@ In the following example, switch to a different tab in the same browser window. 
 
   let state; /** "visible" | "hidden" */
 
-  $: document.title = state;
+  $: if (typeof window !== "undefined") {
+    document.title = state;
+  }
 </script>
 
 <VisibilityChange bind:state />

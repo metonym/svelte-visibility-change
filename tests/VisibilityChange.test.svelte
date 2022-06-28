@@ -5,7 +5,9 @@
   let hidden: boolean;
   let visible: boolean;
 
-  $: document.title = state;
+  $: if (typeof window !== "undefined") {
+    document.title = state;
+  }
 </script>
 
 <VisibilityChange
