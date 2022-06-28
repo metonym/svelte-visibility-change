@@ -1,14 +1,14 @@
 <script>
   /**
-   * Determine the current visibility state of the document
-   * @type {"visible" | "hidden"}
+   * The current visibility state of the document.
+   * @type {DocumentVisibilityState}
    */
   export let state = undefined;
 
-  /** `true` if the page is visible */
+  /** `true` if the page is visible ("focused"). */
   export let visible = false;
 
-  /** `true` if the page is not visible (i.e., "blurred") */
+  /** `true` if the page is not visible ("blurred"). */
   export let hidden = false;
 
   import { onMount, createEventDispatcher, tick } from "svelte";

@@ -1,2 +1,2 @@
 export { default } from "./VisibilityChange.svelte";
-export { visibilityChange, OnChangeEvent } from "./visibility-change";
+export { visibilityChange } from "./visibility-change";
