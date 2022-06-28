@@ -15,7 +15,7 @@
 
   const dispatch = createEventDispatcher();
 
-  const change = () => {
+  const change =  () => {
     state = document.visibilityState;
     dispatch("change", { state, visible, hidden });
   };

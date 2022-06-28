@@ -6,9 +6,9 @@
 
 <!-- REPO_URL -->
 
-Use this utility component to declaratively listen to browser page visibility changes.
+Use this utility component and action to listen to browser page visibility changes.
 
-The visibility state of a page can either be "visible" or "hidden."
+The visibility state of a page can either be `visible` or `hidden`.
 
 **Use cases**
 
@@ -24,21 +24,14 @@ Try it in the [Svelte REPL](https://svelte.dev/repl/a4b8bdb782514baaa7fa1cb26313
 
 ## Installation
 
-**Yarn**
-
-```bash
+```sh
+# yarn
 yarn add -D svelte-visibility-change
-```
 
-**NPM**
-
-```bash
+# npm
 npm i -D svelte-visibility-change
-```
 
-**pnpm**
-
-```bash
+# pnpm
 pnpm i -D svelte-visibility-change
 ```
 
@@ -48,7 +41,7 @@ pnpm i -D svelte-visibility-change
 
 Bind to the `state` prop to determine if the current tab is currently visible or hidden.
 
-In this live demo, switch to a different tab in the same browser window. The page title should change from "visible" to "hidden."
+In the following example, switch to a different tab in the same browser window. The page title should change from "visible" to "hidden."
 
 ```svelte
 <script>
@@ -138,12 +131,12 @@ If using the action with TypeScript, use the `OnChangeEvent` utility type to ame
 ```html
 <script lang="ts">
   import { visibilityChange } from "svelte-visibility-change";
-  import { OnChangeEvent } from "svelte-visibility-change/types";
+  import type { OnChangeEvent } from "svelte-visibility-change/types";
 
   const onChange: OnChangeEvent = ({ detail }) => {
-    console.log(detail.state); // "visible" | "hidden"
-    console.log(detail.visible); // boolean
-    console.log(detail.hidden); // boolean
+    console.log(detail!.state); // "visible" | "hidden"
+    console.log(detail!.visible); // boolean
+    console.log(detail!.hidden); // boolean
   };
 </script>
 
