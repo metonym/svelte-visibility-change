@@ -10,5 +10,5 @@
     "target": "es2017",
     "types": ["svelte"]
   },
-  "include": ["src/*", "tests/*"]
+  "include": ["src", "tests"]
 }

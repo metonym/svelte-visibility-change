@@ -8,7 +8,9 @@ export function visibilityChange(element) {
     const hidden = state === "hidden";
 
     element.dispatchEvent(
-      new CustomEvent("change", { detail: { state, visible, hidden } })
+      new CustomEvent("visibilitychange", {
+        detail: { state, visible, hidden },
+      })
     );
   };
 

@@ -6,6 +6,6 @@ interface VisibilityChangeDetail {
 
 declare namespace svelte.JSX {
   interface HTMLProps {
-    onchange?: (event: CustomEvent<VisibilityChangeDetail>) => void;
+    onvisibilitychange?: (event: CustomEvent<VisibilityChangeDetail>) => void;
   }
 }
