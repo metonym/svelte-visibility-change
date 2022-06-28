@@ -11,12 +11,13 @@
   /** `true` if the page is not visible (i.e., "blurred") */
   export let hidden = false;
 
-  import { onMount, createEventDispatcher } from "svelte";
+  import { onMount, createEventDispatcher, tick } from "svelte";
 
   const dispatch = createEventDispatcher();
 
-  const change =  () => {
+  const change = async () => {
     state = document.visibilityState;
+    await tick();
     dispatch("change", { state, visible, hidden });
   };
 
