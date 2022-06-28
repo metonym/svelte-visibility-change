@@ -1,6 +1,6 @@
 {
   "name": "svelte-visibility-change",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "license": "MIT",
   "description": "Detect browser page visibility changes using the Page Visibility API",
   "author": "Eric Liu (https://github.com/metonym)",

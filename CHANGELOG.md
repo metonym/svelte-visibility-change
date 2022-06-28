@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0](https://github.com/metonym/svelte-visibility-change/releases/tag/v0.6.0) - 2022-06-28
+
+- use `DocumentVisibilityState` to type `state` prop
+- rename action `change` event to `visibilitychange`
+- remove `OnChangeEvent` type; instead, type the action event through the JSX namespace
+- type `visibilityChange` using the Svelte Action type
+- colocate types in `src` folder
+
 ## [0.5.2](https://github.com/metonym/svelte-visibility-change/releases/tag/v0.5.2) - 2022-06-28
 
 - `VisibilityChange` change event should dispatch after state changes
