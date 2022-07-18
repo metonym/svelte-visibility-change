@@ -1,7 +1,7 @@
 import { test, expect, describe, afterEach, vi } from "vitest";
 import { SvelteComponent, tick } from "svelte";
-import { default as VisibilityChange } from "./VisibilityChange.test.svelte";
-import { default as VisibilityChangeAction } from "./visibility-change.test.svelte";
+import VisibilityChange from "./VisibilityChange.test.svelte";
+import VisibilityChangeAction from "./visibility-change.test.svelte";
 
 const consoleLog = vi.spyOn(console, "log");
 
