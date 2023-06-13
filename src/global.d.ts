@@ -1,6 +1,6 @@
-declare namespace svelte.JSX {
-  interface HTMLProps {
-    onvisibilitychange?: (
+declare namespace svelteHTML {
+  interface HTMLAttributes<T> {
+    "on:visibilitychange"?: (
       event: CustomEvent<{
         state: DocumentVisibilityState;
         visible: boolean;
