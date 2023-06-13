@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { visibilityChange } from "../src";
+  import { visibilityChange } from "svelte-visibility-change";
 </script>
 
 <div

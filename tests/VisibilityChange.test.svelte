@@ -1,5 +1,5 @@
 <script lang="ts">
-  import VisibilityChange from "../src";
+  import VisibilityChange from "svelte-visibility-change";
 
   let state: DocumentVisibilityState;
   let hidden: boolean;

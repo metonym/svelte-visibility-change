@@ -2,13 +2,18 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "ignoreDeprecations": "5.0",
     "importsNotUsedAsValues": "error",
     "isolatedModules": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
     "strict": true,
     "target": "es2017",
-    "types": ["svelte"]
+    "types": ["svelte"],
+    "paths": {
+      "svelte-visibility-change": ["./src"],
+      "svelte-visibility-change/*": ["./src/*"]
+    }
   },
   "include": ["src", "tests"]
 }
