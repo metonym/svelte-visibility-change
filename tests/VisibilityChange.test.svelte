@@ -25,14 +25,14 @@
   }}
 />
 
-<div data-state>
+<div data-testid="state">
   {state}
 </div>
 
-<div data-hidden>
+<div data-testid="hidden">
   {hidden}
 </div>
 
-<div data-visible>
+<div data-testid="visible">
   {visible}
 </div>
