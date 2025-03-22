@@ -9,14 +9,12 @@
   "types": "./src/index.d.ts",
   "scripts": {
     "dev": "rollup -cw",
-    "predeploy": "rollup -c",
-    "deploy": "gh-pages -d dist",
+    "build": "rollup -c",
     "test": "vitest"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@testing-library/svelte": "^5.2.7",
-    "gh-pages": "^4.0.0",
     "jsdom": "^26.0.0",
     "svelte": "^5.25.2",
     "svelte-readme": "^3.6.3",
