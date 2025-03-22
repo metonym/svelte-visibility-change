@@ -40,7 +40,7 @@
     "type": "git",
     "url": "git+https://github.com/metonym/svelte-visibility-change.git"
   },
-  "homepage": "https://github.com/metonym/svelte-visibility-change",
+  "homepage": "https://metonym.github.io/svelte-visibility-change/",
   "bugs": "https://github.com/metonym/svelte-visibility-change/issues",
   "keywords": [
     "svelte",
