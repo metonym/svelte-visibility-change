@@ -47,6 +47,8 @@ Bind to the `state` prop to determine if the current tab is currently visible or
 
 In the following example, switch to a different tab in the same browser window. The page title should change from "visible" to "hidden."
 
+<!-- render:Basic -->
+
 ```svelte
 <script>
   import VisibilityChange from "svelte-visibility-change";
@@ -65,7 +67,7 @@ In the following example, switch to a different tab in the same browser window. 
 
 You can also bind to the boolean `visible` and `hidden` props.
 
-```svelte no-eval
+```svelte
 <script>
   import VisibilityChange from "svelte-visibility-change";
 
@@ -79,6 +81,8 @@ You can also bind to the boolean `visible` and `hidden` props.
 ### `on:visible` / `on:hidden`
 
 An alternative to binding to props is to listen to the `on:visible` and `on:hidden` dispatched events.
+
+<!-- render:Events -->
 
 ```svelte
 <script>
@@ -101,7 +105,7 @@ This component dispatches an `on:change` event whenever a [visibilitychange](htt
 
 **Note:** unlike `on:visible`, this event only fires when the page visibility changes _after the component has mounted._
 
-```svelte no-eval
+```svelte
 <VisibilityChange
   on:change={({ detail }) => {
     console.log(detail.state); // "visible" | "hidden"
@@ -117,7 +121,7 @@ An alternative to the `VisibilityChange` component is the `visibilityChange` act
 
 The action only dispatches a "change" event with the same `event.detail` signature.
 
-```svelte no-eval
+```svelte
 <script>
   import { visibilityChange } from "svelte-visibility-change";
 </script>
@@ -129,7 +133,8 @@ The action only dispatches a "change" event with the same `event.detail` signatu
     console.log(detail.visible); // boolean
     console.log(detail.hidden); // boolean
   }}
-/>
+>
+</div>
 ```
 
 ## API

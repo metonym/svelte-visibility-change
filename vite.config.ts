@@ -1,23 +1,27 @@
-/// <reference types="vitest/globals" />
-import { svelte, vitePreprocess } from "@sveltejs/vite-plugin-svelte";
-import path from "path";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
+import path from "node:path";
+import { defineConfig } from "vite";
+import pkg from "./package.json";
+import { pluginReadme } from "./plugin-readme";
 
-/** @type {import('vite').UserConfig} */
-export default {
+export default defineConfig({
+  base: "/" + pkg.name,
+  root: "./tests",
+  build: { outDir: "../dist", emptyOutDir: true },
   plugins: [
+    pluginReadme({
+      title: pkg.name,
+      description: pkg.description,
+      watchDir: "./tests/examples",
+      baseUrl: "https://github.com/metonym/svelte-time/tree/master/",
+    }),
     svelte({
-      preprocess: [vitePreprocess()],
-      hot: false,
+      extensions: [".svelte", ".md"],
     }),
   ],
   resolve: {
+    alias: { [pkg.name]: path.resolve("./src") },
     conditions: ["browser"],
-    alias: {
-      "svelte-visibility-change": path.resolve("src"),
-    },
   },
-  test: {
-    environment: "jsdom",
-    globals: true,
-  },
-};
+  test: { globals: true, environment: "jsdom" },
+});

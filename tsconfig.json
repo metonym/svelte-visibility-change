@@ -2,6 +2,8 @@
   "compilerOptions": {
     "noEmit": true,
     "checkJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": true,
@@ -9,7 +11,7 @@
     "isolatedModules": true,
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "strict": true,
     "types": ["svelte", "vitest/globals"],
@@ -18,5 +20,5 @@
       "svelte-visibility-change/*": ["./src/*"]
     }
   },
-  "include": ["src", "tests"]
+  "include": ["src", "tests", "plugin-readme.ts", "vite.config.ts"]
 }
