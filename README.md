@@ -26,14 +26,17 @@ Try it in the [Svelte REPL](https://svelte.dev/repl/a4b8bdb782514baaa7fa1cb26313
 ## Installation
 
 ```sh
-# yarn
-yarn add -D svelte-visibility-change
-
 # npm
-npm i -D svelte-visibility-change
+npm i svelte-visibility-change
 
 # pnpm
-pnpm i -D svelte-visibility-change
+pnpm i svelte-visibility-change
+
+# Yarn
+yarn add svelte-visibility-change
+
+# Bun
+bun add svelte-visibility-change
 ```
 
 ## Usage
@@ -144,10 +147,6 @@ The action only dispatches a "change" event with the same `event.detail` signatu
 - **on:visible**: fired if the page is visible
 - **on:hidden**: fired if the page visibility is hidden
 - **on:change**: fired when a page visibility event occurs, after the initial mount
-
-## TypeScript
-
-Svelte version 3.31 or greater is required to use this component with TypeScript.
 
 ## Changelog
 
