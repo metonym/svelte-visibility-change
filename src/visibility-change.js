@@ -1,4 +1,3 @@
-// @ts-check
 /**
  * @type {import ("svelte/action").Action<HTMLElement>}
  */
