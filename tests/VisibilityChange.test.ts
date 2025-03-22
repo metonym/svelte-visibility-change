@@ -1,25 +1,10 @@
-import { test, expect, describe, afterEach, vi } from "vitest";
-import { SvelteComponent, tick } from "svelte";
+import { render, screen } from "@testing-library/svelte";
 import VisibilityChange from "./VisibilityChange.test.svelte";
 import VisibilityChangeAction from "./visibility-change.test.svelte";
 
 const consoleLog = vi.spyOn(console, "log");
 
 describe("VisibilityChange", () => {
-  let instance: null | SvelteComponent = null;
-
-  const fire = async () => {
-    const value = document.visibilityState === "hidden" ? "visible" : "hidden";
-
-    Object.defineProperty(document, "visibilityState", {
-      value,
-      writable: true,
-    });
-    document.dispatchEvent(new Event("visibilitychange"));
-
-    await tick();
-  };
-
   const CHANGE_EVENT = {
     HIDDEN: {
       state: "hidden",
@@ -34,8 +19,6 @@ describe("VisibilityChange", () => {
   };
 
   afterEach(() => {
-    instance?.$destroy();
-    instance = null;
     document.body.innerHTML = "";
     consoleLog.mockReset();
     Object.defineProperty(document, "visibilityState", {
@@ -45,49 +28,77 @@ describe("VisibilityChange", () => {
   });
 
   test("VisibilityChange component", async () => {
-    const target = document.body;
+    render(VisibilityChange);
 
-    instance = new VisibilityChange({ target });
+    const state = screen.getByTestId("state");
+    const hidden = screen.getByTestId("hidden");
+    const visible = screen.getByTestId("visible");
 
-    const state = target.querySelector("[data-state]")!;
-    const hidden = target.querySelector("[data-hidden]")!;
-    const visible = target.querySelector("[data-visible]")!;
-
-    expect(state.innerHTML).toEqual("visible");
-    expect(hidden.innerHTML).toEqual("false");
-    expect(visible.innerHTML).toEqual("true");
-    expect(document.visibilityState).toEqual("visible");
-    expect(document.title).toEqual("visible");
-    expect(consoleLog).toBeCalledWith("visible");
-    await fire();
-    expect(state.innerHTML).toEqual("hidden");
-    expect(hidden.innerHTML).toEqual("true");
-    expect(visible.innerHTML).toEqual("false");
-    expect(document.visibilityState).toEqual("hidden");
-    expect(document.title).toEqual("hidden");
-    expect(consoleLog).toBeCalledWith("hidden");
-    expect(consoleLog).toBeCalledWith(CHANGE_EVENT.HIDDEN);
-    await fire();
-    expect(state.innerHTML).toEqual("visible");
-    expect(hidden.innerHTML).toEqual("false");
-    expect(visible.innerHTML).toEqual("true");
-    expect(document.visibilityState).toEqual("visible");
-    expect(document.title).toEqual("visible");
-    expect(consoleLog).toBeCalledWith("visible");
-    expect(consoleLog).toBeCalledWith(CHANGE_EVENT.VISIBLE);
+    expect(state.textContent).toBe("visible");
+    expect(hidden.textContent).toBe("false");
+    expect(visible.textContent).toBe("true");
+    expect(document.visibilityState).toBe("visible");
+    expect(document.title).toBe("visible");
+    expect(consoleLog).toHaveBeenCalledWith("visible");
+    
+    // Simulate visibility change to hidden
+    Object.defineProperty(document, "visibilityState", {
+      value: "hidden",
+      writable: true,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+    await vi.waitFor(() => {
+      expect(state.textContent).toBe("hidden");
+      expect(hidden.textContent).toBe("true");
+      expect(visible.textContent).toBe("false");
+      expect(document.visibilityState).toBe("hidden");
+      expect(document.title).toBe("hidden");
+      expect(consoleLog).toHaveBeenCalledWith("hidden");
+      expect(consoleLog).toHaveBeenCalledWith(CHANGE_EVENT.HIDDEN);
+    });
+    
+    // Simulate visibility change to visible
+    Object.defineProperty(document, "visibilityState", {
+      value: "visible",
+      writable: true,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+    await vi.waitFor(() => {
+      expect(state.textContent).toBe("visible");
+      expect(hidden.textContent).toBe("false");
+      expect(visible.textContent).toBe("true");
+      expect(document.visibilityState).toBe("visible");
+      expect(document.title).toBe("visible");
+      expect(consoleLog).toHaveBeenCalledWith("visible");
+      expect(consoleLog).toHaveBeenCalledWith(CHANGE_EVENT.VISIBLE);
+    });
   });
 
   test("VisibilityChange action", async () => {
-    const target = document.body;
+    render(VisibilityChangeAction);
 
-    instance = new VisibilityChangeAction({ target });
-
-    expect(document.visibilityState).toEqual("visible");
-    await fire();
-    expect(document.visibilityState).toEqual("hidden");
-    expect(consoleLog).toBeCalledWith(CHANGE_EVENT.HIDDEN);
-    await fire();
-    expect(document.visibilityState).toEqual("visible");
-    expect(consoleLog).toBeCalledWith(CHANGE_EVENT.VISIBLE);
+    expect(document.visibilityState).toBe("visible");
+    
+    // Simulate visibility change to hidden
+    Object.defineProperty(document, "visibilityState", {
+      value: "hidden",
+      writable: true,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+    await vi.waitFor(() => {
+      expect(document.visibilityState).toBe("hidden");
+      expect(consoleLog).toHaveBeenCalledWith(CHANGE_EVENT.HIDDEN);
+    });
+    
+    // Simulate visibility change to visible
+    Object.defineProperty(document, "visibilityState", {
+      value: "visible",
+      writable: true,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+    await vi.waitFor(() => {
+      expect(document.visibilityState).toBe("visible");
+      expect(consoleLog).toHaveBeenCalledWith(CHANGE_EVENT.VISIBLE);
+    });
   });
 });

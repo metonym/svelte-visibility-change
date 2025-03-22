@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@testing-library/svelte": "^5.2.7",
     "gh-pages": "^4.0.0",
     "jsdom": "^26.0.0",
     "svelte": "^5.25.2",
