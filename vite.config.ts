@@ -23,5 +23,9 @@ export default defineConfig({
     alias: { [pkg.name]: path.resolve("./src") },
     conditions: ["browser"],
   },
-  test: { globals: true, environment: "jsdom" },
+  test: {
+    globals: true,
+    silent: !!process.env.CI,
+    environment: "jsdom",
+  },
 });
